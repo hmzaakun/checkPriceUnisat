@@ -8,7 +8,7 @@ This user script for Tampermonkey allows you to regularly check the price of a B
 
 1. Install the Tampermonkey extension for your preferred browser (Firefox, Chrome, Edge, Opera, Safari, etc.)
 2. Click on the Tampermonkey icon in your browser and select "Create a new script"
-3. Copy the code from the `checkPrice-Unisat.js` file into the newly created script
+3. Copy the code from the `script.js` file into the newly created script
 4. Save the script by pressing "Ctrl+S" or by clicking on "File > Save"
 
 ## Usage
