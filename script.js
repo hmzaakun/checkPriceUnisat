@@ -9,7 +9,6 @@
 // @grant        none
 // ==/UserScript==
 
-// Fonction pour vérifier le prix de la première span class "usd" contenue dans le premier élément "div.trade-item"
 function checkPrice() {
   const targetElement = document.querySelector('div.trade-item:first-of-type span.usd');
   const targetPrice = 35;
@@ -18,31 +17,30 @@ function checkPrice() {
     const targetValue = parseFloat(targetElement.innerText.replace('$', ''));
     console.dir(targetValue);
     if (targetValue < targetPrice) {
-      alert(`Le prix est inférieur à ${targetPrice}$`);
+      alert(`the price is less than ${targetPrice}$`);
       const audio = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-02.mp3');
       audio.play().catch(error => {
-        console.log('Impossible de jouer le son automatiquement. ', error);
+        console.log('Unable to play sound automatically. ', error);
       });
     }
   }
 }
 
-// Fonction pour cliquer sur le bouton "View Only"
 function clickViewOnly() {
   const viewOnlyButton = document.querySelector('.button.border-btn');
   if (viewOnlyButton) {
     viewOnlyButton.click();
-    // Attendre 1 secondes avant de vérifier le prix
+    // Wait 1sec before checkPrice
     setTimeout(checkPrice, 1000);
   }
 }
 
-// Attendre que la page soit complètement chargée avant de cliquer sur le bouton "View Only"
+// Waiting for the page to load
 window.addEventListener('load', () => {
   setTimeout(clickViewOnly, 1000);
 });
 
-// Recharger la page toutes les 2 minutes
+// Reload the page every 2 minutes
 setInterval(() => {
   window.location.reload();
 }, 12000);
